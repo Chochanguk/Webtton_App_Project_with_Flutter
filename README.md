@@ -21,6 +21,8 @@ samples, guidance on mobile development, and a full API reference.
 
 ## 웹툰 card생성
 <img src="https://github.com/Chochanguk/Webtton_App_Project_with_Flutter/assets/119058637/8eb59d6b-929c-434e-ae2f-33fab69bf778" width=30% height=30%/>
+
+## 화면 전환 및 애니메이션 추가(화면 전환: PageRouteBuilder(transitionsBuilder:~~,pageBuilder: (context, anmation, secondaryAnimation) => ~~),Hero위젯(container를 떠다니게 하는 위젯))
 <img src="https://github.com/Chochanguk/Webtton_App_Project_with_Flutter/assets/119058637/84a5cefb-2264-4b49-81b1-72eea33c1a2d" width=30% height=30%/>
 
 
