@@ -18,3 +18,7 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Json형태의 데이터의 API 데이터 확인(디버그 콘솔)
 <img src="https://github.com/Chochanguk/Webtton_App_Project_with_Flutter/assets/119058637/3c015228-ad3a-4f39-8f4c-68d653574693" width=70% height=50%/>
+
+## 웹툰 card생성
+<img src="https://github.com/Chochanguk/Webtton_App_Project_with_Flutter/assets/119058637/07fb575d-53c2-4ed7-8d67-3abd5080aa50" width=70% height=50%/>
+
