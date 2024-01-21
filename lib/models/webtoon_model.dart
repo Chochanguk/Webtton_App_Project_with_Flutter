@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-//각 웹툰별 초기화 해주는 클래스
+//각 Json형태의 웹툰별 Dart클래스로 초기화 해주는 클래스
 class WebtoonModel {
   final String id, thumb, title;
   //★★★named Constructor★★★
