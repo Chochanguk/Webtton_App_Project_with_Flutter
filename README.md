@@ -35,6 +35,5 @@ ApiService Class(웹툰정보 및 웹툰 불러오기),initPrefs(좋아요 기�
 => ApiService클래스: 1.Url String 선언/ 2. Future 로 비동기 형태로 반환 repsone는 await/ 3. url은 Uri.Parse를 해서 선언/ 4. 코드가 성공이 (200)아니면 에러 처리/ 5. 각 인스턴스에 대해 변수로 받아서 return
 ## 최종 화면
 <img src="https://github.com/Chochanguk/Webtton_App_Project_with_Flutter/assets/119058637/ee2e2b6e-0641-4127-816f-22fc6b3282a3" width=70% height=50%/>
-
 <img src="(https://github.com/Chochanguk/Webtton_App_Project_with_Flutter/assets/119058637/47741676-1f36-49d5-aade-2e6697de51f1" width=70% height=50%/>
 
