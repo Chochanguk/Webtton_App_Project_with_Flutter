@@ -2,12 +2,15 @@ import 'dart:convert';
 //★★★http패키를 불러오되,해당 패키지에 namespace를 지정함.★★★
 //★★★"as http"를 통해 패키지의 이름을 간단하게 구성한다.★★★
 import 'package:http/http.dart' as http;
+import 'package:mini_webtoon_app/models/webtoon_detail_model.dart';
+import 'package:mini_webtoon_app/models/webtoon_episode_model.dart';
 import 'package:mini_webtoon_app/models/webtoon_model.dart';
 
 class ApiService {
-  final String baseUrl = "https://webtoon-crawler.nomadcoders.workers.dev";
-  final String today = "today";
-
+  //받아올 url
+  static const String baseUrl =
+      "https://webtoon-crawler.nomadcoders.workers.dev";
+  static const String today = "today";
   //List<WebtoonModel> 형태로 반환 하는데 비동기 이므로 Future로 반환
   Future<List<WebtoonModel>> getTodaysToons() async {
     //json으로 웹툰을 받아올때마다 List에 추가하기
@@ -35,11 +38,44 @@ class ApiService {
         print(toon.title);
         */
         //리스트에 넣고 관리하기
+        //WebtoonModel 클래스는 title,thumb,id뿐이다.
         webtoonInstances.add(WebtoonModel.fromJson(webtoon));
       }
       return webtoonInstances;
     }
     //응답 코드가 200이 아니면 실패한 거임.
+    throw Error();
+  }
+
+  //한 만화에 대한 title,about,genre,age값 쌍만 받아오기
+  //따라서 json객체에 대해서만 받아오면 된다.
+  static Future<WebtoonDetailModel> getToonById(String id) async {
+    //url 및 그에 대한 response 선언
+    final url = Uri.parse("$baseUrl/$id");
+    final response = await http.get(url);
+    if (response.statusCode == 200) {
+      final webtoon = jsonDecode(response.body);
+      return WebtoonDetailModel.fromJson(webtoon);
+    }
+    throw Error();
+  }
+
+  //서버에서 최신 에피소드만 받아 오기.
+  static Future<List<WebtoonEpisodeModel>> getLatestEpisodeById(
+      String id) async {
+    //url 및 그에 대한 response 선언
+    final url = Uri.parse("$baseUrl/$id/episodes");
+    final response = await http.get(url); //json의 body부분 받아오기
+    //episodes는 여러개 이므로 List로 받아온다.
+    List<WebtoonEpisodeModel> episodesInstances = [];
+    if (response.statusCode == 200) {
+      final List<dynamic> episodes = jsonDecode(response.body);
+      //episodes는 리스트로 받아 올거이므로 각 episode에 대해 추가하기
+      for (var episode in episodes) {
+        episodesInstances.add(WebtoonEpisodeModel.fromJson(episode));
+      }
+      return episodesInstances;
+    }
     throw Error();
   }
 }

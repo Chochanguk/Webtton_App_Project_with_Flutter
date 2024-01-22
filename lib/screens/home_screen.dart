@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mini_webtoon_app/models/webtoon_model.dart';
 import 'package:mini_webtoon_app/services/api_service.dart';
 import 'package:mini_webtoon_app/widegets/webtoon_widget.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 /* "put state" after Data fecthing: Future를 기다리는 방법1... 고전적임
 class HomeScreen extends StatefulWidget {
@@ -99,7 +100,6 @@ class HomeScreen extends StatelessWidget {
       //★★★★ FutuerBuilder!!!
       body: FutureBuilder(
         future: webtoons, //굳이 await안해도 됨
-
         //snapshot을 통해 Future의 상태를 안다.(snapshot.data,snapshot.error 등을 알 수 있다.)
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           //★★★"snapshot.hasData" 를 통해 지금 API로부터★★★
